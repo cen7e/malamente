@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explora Ciudades y Distritos</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@3"></script>
+
+</head>
+<body>
+    <h1>Elige cómo explorar el mapa interactivo</h1>
+    
+    <!-- Tarjetas interactivas para ciudades y distritos -->
+    <section class="cards-container">
+        <div class="card" onclick="window.location.href='ciudades.html'">
+            <img src="images/ciudades.png" alt="Ciudades" />
+            <h2>Explorar Ciudades</h2>
+            <p>Selecciona una ciudad para explorarla</p>
+        </div>
+        <div class="card" onclick="window.location.href='distritos.html'">
+            <img src="images/distritos.png" alt="Distritos" />
+            <h2>Explorar Distritos</h2>
+            <p>Elige un distrito específico</p>
+        </div>
+    </section>
+
+</body>
+</html>
