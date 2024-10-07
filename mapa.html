@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interactivo</title>
+    <!-- Incluye Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@3"></script>
+
+</head>
+<body>
+    <div id="map"></div>
+    <div class="street-name" id="street-name">Haz clic en una calle para ver su nombre</div>
+
+    <!-- Switch para mostrar/ocultar nombres de calles -->
+    <label class="switch">
+        <input type="checkbox" id="toggle-street-names">
+        <span class="slider"></span>
+    </label>
+
+    <!-- Botón para seleccionar una calle aleatoria -->
+    <button id="random-street-btn" class="random-street-btn">?</button>
+
+    <!-- Incluye Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- Archivo JavaScript del mapa -->
+    <script src="map.js"></script>
+</body>
+</html>

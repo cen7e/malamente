@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distritos de Córdoba</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@3"></script>
+
+</head>
+<body>
+    <h1>Elige un distrito de Córdoba</h1>
+
+    <section class="cards-container">
+        <div class="card" onclick="window.location.href='mapa_distritos.html?zone=distrito-centro'">
+            <img src="images/distrito-centro.png" alt="Distrito Centro" />
+            <h3>Distrito Centro</h3>
+            <p>Explora el Distrito Centro de Córdoba</p>
+        </div>
+        <!-- Aquí puedes añadir más distritos a medida que los incorpores -->
+		<div class="card" onclick="window.location.href='mapa_distritos.html?zone=distrito-poniente-sur'">
+			<img src="images/distrito-poniente-sur.png" alt="Distrito Poniente Sur" />
+			<h3>Distrito Poniente Sur</h3>
+			<p>Explora el Distrito Poniente Sur de Córdoba</p>
+    </div>
+		
+    </section>
+
+</body>
+</html>
