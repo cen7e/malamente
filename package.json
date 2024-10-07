@@ -1,0 +1,15 @@
+{
+    "name": "callejero",
+    "version": "1.0.0",
+    "scripts": {
+      "build": "vue-cli-service build",
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "vue": "^3.0.0"
+    },
+    "devDependencies": {
+      "@vue/cli-service": "^4.5.0"
+    }
+  }
+  
