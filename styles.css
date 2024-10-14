@@ -1,92 +1,6 @@
-/* Centrar el input y el botón de búsqueda */
-.search-container-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-/* Contenedor para el input y el botón de búsqueda */
-.search-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-/* Botón "Ir a mi ubicación" centrado y debajo del buscador */
-#current-location {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#current-location:hover {
-    background-color: #0056b3;
-}
-
-/* Ajustar el ancho del autocompletar */
-.suggestions {
-    position: absolute;
-    top: 100%; /* Debajo del input */
-    left: 0;
-    width: auto; /* Ajusta el ancho al contenido */
-    min-width: 100%; /* Como mínimo, del tamaño del input */
-    max-width: 300px; /* Evita que sea demasiado grande */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: white;
-    z-index: 1000;
-    max-height: 200px; /* Limita la altura del desplegable */
-    overflow-y: auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    white-space: nowrap; /* Evita saltos de línea */
-    overflow-x: hidden; /* Elimina el scroll horizontal */
-}
-
-/* Eliminar el punto o guión en los elementos de la lista */
-.suggestions ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.suggestions ul li {
-    padding: 10px;
-    cursor: pointer;
-}
-
-.suggestions ul li:hover {
-    background-color: #f0f0f0;
-}
-
-/* Estilo global para todos los inputs */
-input[type="text"] {
-    border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
-    padding: 10px;
-    outline: none; /* Elimina el borde de enfoque predeterminado */
-}
-
-/* Estilo global para los botones */
-button {
-    border: 1px solid #ccc;
-    border-left: none;
-    border-radius: 0 5px 5px 0;
-    padding: 10px 15px;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
 
 
-
-/* Mapa */
+/* Your existing custom styles from styles.css */
 #map {
     height: 100vh;
     width: 100%;
@@ -138,7 +52,17 @@ h1 {
     margin-bottom: 15px;
 }
 
-/* Estilos para mensajes emergentes y botones de respuesta */
+h2 {
+    font-size: 22px;
+    color: #333;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Estilos para el popup de mensajes y botones de respuesta */
 .message-popup, .popup-option {
     background-color: #ffffff;
     color: #333333;
@@ -191,7 +115,6 @@ h1 {
     font-size: 16px;
 }
 
-/* Botón flotante y estilo de interruptores */
 .toggle-btn {
     position: absolute;
     bottom: 10px;

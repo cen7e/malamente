@@ -4,26 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explora Ciudades y Distritos</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .search-container {
+            margin: 20px 0;
+            text-align: center;
+        }
 
+        .search-container input[type="text"] {
+            width: 400px;
+            padding: 15px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .search-container button {
+            padding: 15px 25px;
+            margin-left: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-container button:hover {
+            background-color: #45a049;
+        }
+
+        .suggestions {
+            margin: 0 auto;
+            width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+            text-align: left;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+        }
+
+        .suggestions ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .suggestions ul li {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .suggestions ul li:hover {
+            background-color: #f0f0f0;
+        }
+
+        .dropdown {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .dropdown select {
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: 2px solid #ccc;
+        }
+    </style>
 </head>
 <body>
-    <h1>Elige cómo explorar el mapa interactivo</h1>
-    
-    <!-- Tarjetas interactivas para ciudades y distritos -->
-    <section class="cards-container">
-        <div class="card" onclick="window.location.href='ciudades.html'">
-            <img src="images/ciudades.png" alt="Ciudades" />
-            <h2>Explorar Ciudades</h2>
-            <p>Selecciona una ciudad para explorarla</p>
-        </div>
-        <div class="card" onclick="window.location.href='distritos.html'">
-            <img src="images/distritos.png" alt="Distritos" />
-            <h2>Explorar Distritos</h2>
-            <p>Elige un distrito específico</p>
-        </div>
-    </section>
+    <h1>Explora Ciudades y Distritos</h1>
 
+    <!-- Barra de búsqueda por ciudad -->
+    <div class="search-container">
+        <input type="text" id="city-search" placeholder="Buscar una ciudad..." autocomplete="off">
+        <button id="search-button">Buscar</button>
+        <div class="suggestions" id="suggestions"></div>
+    </div>
+
+    <!-- Botón para ir a la ubicación actual -->
+    <div class="search-container">
+        <button id="current-location">Ir a mi ubicación</button>
+    </div>
+
+    <!-- Menú desplegable dinámico para ciudades y distritos -->
+    <div class="dropdown">
+        <label for="districts">Explora por distritos:</label>
+        <select id="cities">
+            <option value="">Selecciona una ciudad</option>
+            <option value="cordoba">Córdoba</option>
+            <!-- Aquí pueden añadirse más ciudades -->
+        </select>
+        <select id="districts" style="display:none;">
+            <option value="">Selecciona un distrito</option>
+        </select>
+    </div>
+
+    <script src="ciudades.js"></script>
+    <script>
+        // Función para cargar distritos de una ciudad seleccionada
+        const districtsData = {
+            "cordoba": {
+                "Distrito Centro": "distrito-centro",
+                "Distrito Poniente Sur": "distrito-poniente-sur"
+            },
+            // Más ciudades pueden añadirse aquí
+        };
+
+        const citySelect = document.getElementById('cities');
+        const districtSelect = document.getElementById('districts');
+
+        // Al seleccionar una ciudad, cargar distritos correspondientes
+        citySelect.addEventListener('change', function () {
+            const city = this.value;
+
+            // Limpiar distritos anteriores
+            districtSelect.innerHTML = '<option value="">Selecciona un distrito</option>';
+
+            if (city && districtsData[city]) {
+                districtSelect.style.display = 'inline-block';
+                for (const district in districtsData[city]) {
+                    const option = document.createElement('option');
+                    option.value = districtsData[city][district];
+                    option.textContent = district;
+                    districtSelect.appendChild(option);
+                }
+            } else {
+                districtSelect.style.display = 'none';
+            }
+        });
+
+        // Redirigir según el distrito seleccionado
+        districtSelect.addEventListener('change', function () {
+            const district = this.value;
+            if (district) {
+                window.location.href = `mapa_distritos.html?zone=${district}`;
+            }
+        });
+    </script>
 </body>
 </html>
